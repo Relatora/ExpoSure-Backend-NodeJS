@@ -1,0 +1,42 @@
+# https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+# Change url from vscode Settings.json 
+# [ctrl+.] -> type json -> click Settings.json -> Very Bottom under "rest-client.environmentVariables"
+@myRoute = venues
+@contentType = application/json
+
+### Get ALL Venues
+GET {{url}}/{{myRoute}} HTTP/1.1
+Accept: {{contentType}}
+
+### Get Venue By ID
+GET {{url}}/{{myRoute}}/7 HTTP/1.1
+Accept: {{contentType}}
+
+### Create Venue
+POST {{url}}/{{myRoute}}
+Content-Type: {{contentType}}
+
+{
+    "name": "New Venue 3",
+    "address": "Bla St.",
+    "contact_name": "Bla Contact",
+    "contact_phone": "516-455-5688",
+    "contact_email": "bla@bla.com"
+}
+
+### Update Venue
+PUT {{url}}/{{myRoute}}/7
+Content-Type: {{contentType}}
+
+{
+    "name": "Newer Venue",
+    "address": "Bla Bla St.",
+    "contact_name": "Bla Contact",
+    "contact_phone": "516-455-5688",
+    "contact_email": "bla@blaBla.com",
+    "date": "2020/12/02 16:00"
+}
+
+### Delete Venue
+DELETE {{url}}/{{myRoute}}/6
+Content-Type: {{contentType}}

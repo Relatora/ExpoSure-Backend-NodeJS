@@ -1,0 +1,43 @@
+# https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+# Change url from vscode Settings.json 
+# [ctrl+.] -> type json -> click Settings.json -> Very Bottom under "rest-client.environmentVariables"
+@event_Id = 5
+@contentType = application/json
+
+### Get ALL Events
+GET {{url}}/Expo_Events HTTP/1.1
+Accept: {{contentType}}
+
+### Get Event By ID
+GET {{url}}/Expo_Events/6 HTTP/1.1
+Accept: {{contentType}}
+
+### Create Event
+POST {{url}}/expo_events
+Content-Type: {{contentType}}
+
+{
+    "name": "New Event",
+    "location": "Bla St.",
+    "contact_name": "Bla Contact",
+    "contact_phone": "516-455-5688",
+    "contact_email": "bla@bla.com",
+    "date": "2020/12/02 13:00"
+}
+
+### Update Event
+PUT {{url}}/expo_events/6
+Content-Type: {{contentType}}
+
+{
+    "name": "Newer Event",
+    "location": "Bla Bla St.",
+    "contact_name": "Bla Contact",
+    "contact_phone": "516-455-5688",
+    "contact_email": "bla@blaBla.com",
+    "date": "2020/12/02 16:00"
+}
+
+### Delete Event
+DELETE {{url}}/expo_events/7
+Content-Type: {{contentType}}

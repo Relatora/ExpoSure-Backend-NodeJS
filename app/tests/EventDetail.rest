@@ -1,0 +1,35 @@
+# https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+# Change url from vscode Settings.json 
+# [ctrl+.] -> type json -> click Settings.json -> Very Bottom under "rest-client.environmentVariables"
+@myRoute = event_details
+@contentType = application/json
+
+### Get ALL EventDetailss
+GET {{url}}/{{myRoute}} HTTP/1.1
+Accept: {{contentType}}
+
+### Get EventDetails By ID
+GET {{url}}/{{myRoute}}/1/1/1 HTTP/1.1
+Accept: {{contentType}}
+
+### Create EventDetails
+POST {{url}}/{{myRoute}}
+Content-Type: {{contentType}}
+
+{
+    "first_name": "Mark",
+    "last_name": "Russel"
+}
+
+### Update EventDetails
+PUT {{url}}/{{myRoute}}/1
+Content-Type: {{contentType}}
+
+{
+    "first_name": "Tom",
+    "last_name": "Hanks"
+}
+
+### Delete EventDetails
+DELETE {{url}}/{{myRoute}}/6
+Content-Type: {{contentType}}

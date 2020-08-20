@@ -1,0 +1,43 @@
+# https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+# Change url from vscode Settings.json 
+# [ctrl+.] -> type json -> click Settings.json -> Very Bottom under "rest-client.environmentVariables"
+@myRoute = products
+@contentType = application/json
+
+### Get ALL Products
+GET {{url}}/{{myRoute}} HTTP/1.1
+Accept: {{contentType}}
+
+### Get Product By ID
+GET {{url}}/{{myRoute}}/3 HTTP/1.1
+Accept: {{contentType}}
+
+### Create Product
+POST {{url}}/{{myRoute}}
+Content-Type: {{contentType}}
+
+{
+    "name": "iRobot® Roomba® 980",
+    "description": "When AI meets vacuum machines you get the Romba 9000. Laser maping your home, intelligent obstacle avoidance and self-charging",
+    "dimentions":"20.5 x 5.25 x 16.5 inches",
+    "price": 687.99,
+    "QR_code": "dsdsd",
+    "business_id": 1
+}
+
+### Update Product
+PUT {{url}}/{{myRoute}}/3
+Content-Type: {{contentType}}
+
+{
+    "name": "SHARK® Stealth® 890",
+    "description": "Laser maping your home, intelligent obstacle avoidance and self-charging",
+    "dimentions":"20.5 x 5.25 x 16.5 inches",
+    "price": 999.10,
+    "QR_code": "dsdsd",
+    "business_id": 1
+}
+
+### Delete Product
+DELETE {{url}}/{{myRoute}}/6
+Content-Type: {{contentType}}

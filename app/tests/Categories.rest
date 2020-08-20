@@ -1,0 +1,33 @@
+# https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+# Change url from vscode Settings.json 
+# [ctrl+.] -> type json -> click Settings.json -> Very Bottom under "rest-client.environmentVariables"
+@myRoute = categories
+@contentType = application/json
+
+### Get ALL Categories
+GET {{url}}/{{myRoute}} HTTP/1.1
+Accept: {{contentType}}
+
+### Get Category By ID
+GET {{url}}/{{myRoute}}/2 HTTP/1.1
+Accept: {{contentType}}
+
+### Create Category
+POST {{url}}/{{myRoute}}
+Content-Type: {{contentType}}
+
+{
+    "description": "Agriculture"
+}
+
+### Update Category
+PUT {{url}}/{{myRoute}}/6
+Content-Type: {{contentType}}
+
+{
+    "description": "Medical"
+}
+
+### Delete Category
+DELETE {{url}}/{{myRoute}}/6
+Content-Type: {{contentType}}

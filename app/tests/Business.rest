@@ -1,0 +1,43 @@
+# https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+# Change url from vscode Settings.json 
+# [ctrl+.] -> type json -> click Settings.json -> Very Bottom under "rest-client.environmentVariables"
+@myRoute = businesses
+@contentType = application/json
+
+### Get ALL Businesses
+GET {{url}}/{{myRoute}} HTTP/1.1
+Accept: {{contentType}}
+
+### Get Business By ID
+GET {{url}}/{{myRoute}}/2 HTTP/1.1
+Accept: {{contentType}}
+
+### Create Business
+POST {{url}}/{{myRoute}}
+Content-Type: {{contentType}}
+
+{
+    "name": "New Business",
+    "address": "Bla St.",
+    "contact_name": "Bla Contact",
+    "contact_phone": "516-455-5688",
+    "contact_email": "bla@bla.com",
+    "category_id":2
+}
+
+### Update Business
+PUT {{url}}/{{myRoute}}/2
+Content-Type: {{contentType}}
+
+{
+    "name": "Newer Business",
+    "address": "Bla Bla St.",
+    "contact_name": "Bla Contact",
+    "contact_phone": "516-455-5688",
+    "contact_email": "bla@blaBla.com",
+    "category_id":"3"
+}
+
+### Delete Business
+DELETE {{url}}/{{myRoute}}/2
+Content-Type: {{contentType}}
